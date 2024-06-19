@@ -67,6 +67,7 @@ public:
 	void histogramEqualization(GDALRasterBand* poBand, cv::Mat& outputMat);
 	void tif2shp(GDALDataset* poDataset, GDALDataset* poDataset_prj_ref, std::string outFilePath);
     GDALDataset* save_result_tif(GDALDataset* m_poDataSet, const std::string& Result_tiffile_Name, double* adfGeoTransform, tensorflow::uint8* result_tensor);
+    void Result_TIF2JPG(std::string Result_tiffile_Name, std::string input_img_for_show);
 	/// ////////////////////////////////////////////////////////////////////////////
 	double calculatePolygonArea(std::vector<OGRPoint>& polygonData, double* adfGeoTransform);
     void transformToUTM(std::vector<OGRPolygon*>& polygons, OGRSpatialReference* sourceSRS, OGRSpatialReference*& targetSRS);

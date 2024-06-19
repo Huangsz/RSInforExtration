@@ -244,7 +244,6 @@ bool GdalOpencvTensor::TIF2JPG(std::string input_image_tif, std::string input_im
     int m_imgWidth = m_poDataSet->GetRasterXSize();  // 影像列数
     int m_bandNum = m_poDataSet->GetRasterCount();   // 影像波段数
 
-
     GDALRasterBand* pBand = m_poDataSet->GetRasterBand(1);
     GDALDataType gdalType = pBand->GetRasterDataType(); // 获取影像数据类型
 
@@ -308,6 +307,40 @@ bool GdalOpencvTensor::TIF2JPG(std::string input_image_tif, std::string input_im
     GDALClose(poDstDataset);
 
     return true;
+}
+
+
+void GdalOpencvTensor::Result_TIF2JPG(std::string Result_tiffile_Name, std::string input_img_for_show) {
+    GDALAllRegister();
+
+    // 打开TIF文件
+    GDALDataset* dataset = (GDALDataset*)GDALOpen(Result_tiffile_Name.c_str(), GA_ReadOnly);
+    if (dataset == NULL) {
+        std::cerr << "Failed to open TIF file: " << Result_tiffile_Name << std::endl;
+        return;
+    }
+
+    // 获取图像宽度和高度
+    int width = dataset->GetRasterXSize();
+    int height = dataset->GetRasterYSize();
+
+    // 获取波段
+    GDALRasterBand* band = dataset->GetRasterBand(1);
+    std::vector<uint8_t> pData(width * height);
+    std::vector<float> pFloatData(width * height);
+    // 读取TIF像素数据到Mat
+    band->RasterIO(GF_Read, 0, 0, width, height, pData.data(), width, height, GDT_Byte, 0, 0);
+    std::transform(pData.begin(), pData.end(), pFloatData.begin(), [](uint8_t val) { return static_cast<float>(val); });
+    cv::Mat mat(height, width, CV_32FC1, pFloatData.data());
+    cv::normalize(mat, mat, 0, 255, cv::NORM_MINMAX);
+    mat.convertTo(mat, CV_8UC1);
+    // 写入JPG图像
+    cv::imwrite(input_img_for_show, mat);
+
+    // 释放GDAL资源
+    GDALClose(dataset);
+
+    GDALDestroyDriverManager();
 }
 
 void GdalOpencvTensor::tif2shp(GDALDataset* poDataset, GDALDataset* poDataset_prj_ref, std::string outFilePath)

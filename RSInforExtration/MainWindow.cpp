@@ -25,19 +25,19 @@ int main()
 {
 	
     //路径设置
-    std::string input_image_tif =       "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\test_data1\\new\\GF7_E113.9_N22.5_20210421_DOM_0.7m_test1.tif";
-    std::string input_image_tif_float = "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\test_data1\\new\\GF7_E113.9_N22.5_20210421_DOM_0.7m_test1_float.tif";
-	std::string Result_shpfile_Name =   "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\test_data1\\new\\GF7_E113.9_N22.5_20210421_DOM_0.7m_test1_result.shp";
-	std::string Result_tiffile_Name =   "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\test_data1\\new\\GF7_E113.9_N22.5_20210421_DOM_0.7m_test1_result.tif";
-	std::string Shpfile_trans_Name =    "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\test_data1\\new\\GF7_E113.9_N22.5_20210421_DOM_0.7m_test1_result_trans.shp";
-	std::string Shpfile_simplify =      "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\test_data1\\new\\GF7_E113.9_N22.5_20210421_DOM_0.7m_test1result_simplify.shp";
-	std::string DLL_dir =               "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\Deep_learning\\dll";
-	std::string input_img_for_show =    "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\test_data1\\new\\GF7_E113.9_N22.5_20210421_DOM_0.7m_test1.jpg";
-	std::string output_img_for_show =   "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\test_data1\\new\\GF7_E113.9_N22.5_20210421_DOM_0.7m_test1_result_show.jpg";
-    std::string dsmFilePath =           "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\test_data1\\new\\GF7_E114.0_N22.5_Nanshan_Mosaic_DSM_2m _test1.tif";
-    std::string outputDsmFilePath =     "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\test_data1\\new\\GF7_E114.0_N22.5_Nanshan_Mosaic_DSM_2m _test1_trans.tif";
-    std::string OBJ_FilePath =          "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\test_data1\\new\\GF7_E113.9_N22.5_20210421_DOM_0.7m_test1_result.obj";
-    std::string projLibPath =           "D:\\project\\GDAL\\gdal-3.8.5\\bin\\proj9\\share";    
+    std::string input_image_tif =       "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\test_data1\\new\\GF7_E113.9_N22.5_20210421_DOM_0.7m_test1.tif";  //输入影像路径
+    std::string input_image_tif_float = "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\test_data1\\new\\GF7_E113.9_N22.5_20210421_DOM_0.7m_test1_float.tif";//转换输入tif影像为float tif路径
+    std::string Result_shpfile_Name =   "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\test_data1\\new\\GF7_E113.9_N22.5_20210421_DOM_0.7m_test1_result.shp";//输出shp文件路径
+    std::string Result_tiffile_Name =   "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\test_data1\\new\\GF7_E113.9_N22.5_20210421_DOM_0.7m_test1_result.tif";//输出tif文件路径
+    std::string Shpfile_trans_Name =    "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\test_data1\\new\\GF7_E113.9_N22.5_20210421_DOM_0.7m_test1_result_trans.shp";//转换后的shp文件路径
+    std::string Shpfile_simplify =      "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\test_data1\\new\\GF7_E113.9_N22.5_20210421_DOM_0.7m_test1result_simplify.shp";//简化后的shp文件路径
+    std::string DLL_dir =               "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\Deep_learning\\dll";//深度学习模型路径
+    std::string input_img_for_show =    "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\test_data1\\new\\GF7_E113.9_N22.5_20210421_DOM_0.7m_test1.jpg";//tif转换为jpg用于展示原始影像的路径
+    std::string output_img_for_show =   "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\test_data1\\new\\GF7_E113.9_N22.5_20210421_DOM_0.7m_test1_result_show.jpg";//    tif转换为jpg用于展示结果的路径
+    std::string dsmFilePath =           "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\test_data1\\new\\GF7_E114.0_N22.5_Nanshan_Mosaic_DSM_2m _test1.tif";//   DSM文件路径
+    std::string outputDsmFilePath =     "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\test_data1\\new\\GF7_E114.0_N22.5_Nanshan_Mosaic_DSM_2m _test1_trans.tif";// 转换后的DSM文件路径
+    std::string OBJ_FilePath =          "D:\\project\\GF\\CODE_LH\\RSInforExtration\\RSInforExtration\\test_data1\\new\\GF7_E113.9_N22.5_20210421_DOM_0.7m_test1_result.obj";//输出的OBJ文件路径    
+    std::string projLibPath =           "D:\\project\\GDAL\\gdal-3.8.5\\bin\\proj9\\share";   // proj库路径，即proj.db文件所在路径
 
     if (std::getenv("PROJ_LIB") == nullptr) {
         std::cout << "Setting PROJ_LIB environment variable to " << projLibPath << std::endl;
@@ -76,6 +76,7 @@ int main()
     delete Rs;
     GDALClose(poDataset2);
     GDALClose(m_poDataSet);
+    gdalOpenCV.Result_TIF2JPG(Result_tiffile_Name, output_img_for_show);
 
 	double areaThreshold = 100.0;
 	double simplifyTolerance = 0.9;
