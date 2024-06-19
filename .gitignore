@@ -361,3 +361,24 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+RSInforExtration/Deep_learning/
+
+RSInforExtration/img_split/
+
+RSInforExtration/test_data1/
+
+RSInforExtration/源.cpp
+
+RSInforExtration/data10_0_1024.tif
+
+RSInforExtration/Deep_debug.props
+
+RSInforExtration/Deep_release.props
+
+RSInforExtration/RSInforExtration.vcxproj
+
+RSInforExtration/RSInforExtration.vcxproj.filters
+
+.editorconfig
+
+RSInforExtration.sln
